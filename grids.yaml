@@ -3,33 +3,33 @@
 grids:
   z12:
     base: GLOBAL_WEBMERCATOR
-    num_levels: 12
+    num_levels: 13
   z13:
     base: GLOBAL_WEBMERCATOR
-    num_levels: 13
+    num_levels: 14
   z14:
     base: GLOBAL_WEBMERCATOR
-    num_levels: 14
+    num_levels: 15
   z15:
     base: GLOBAL_WEBMERCATOR
-    num_levels: 15
+    num_levels: 16
   z16:
     # About 1.6m/px at 50 deg
     base: GLOBAL_WEBMERCATOR
-    num_levels: 16
+    num_levels: 17
   z17:
     # About 80cm/px in 50 deg
     base: GLOBAL_WEBMERCATOR
-    num_levels: 17
+    num_levels: 18
   z18:
     # About 40cm/px in 50 deg
     base: GLOBAL_WEBMERCATOR
-    num_levels: 18
+    num_levels: 19
   z19:
     # About 20cm/px in 50 deg
     base: GLOBAL_WEBMERCATOR
-    num_levels: 19
+    num_levels: 20
   z20:
     # About 10cm/px in 50 deg
     base: GLOBAL_WEBMERCATOR
-    num_levels: 20
+    num_levels: 21
