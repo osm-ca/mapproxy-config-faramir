@@ -38,6 +38,7 @@ sources:
     format: png8
     mapfile: '/srv/roads/kelowna/overlay.xml'
     supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
   kelowna2012:
     <<: *imagery
     req:
