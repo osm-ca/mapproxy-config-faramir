@@ -24,7 +24,8 @@ globals:
         resampling_method: nearest
         encoding_options:
           quantizer: fastoctree
-
+  mapserver:
+    binary: '../../bin/mapserv'
   cache:
     meta_size: [4,4]
     meta_buffer: 0
@@ -42,7 +43,7 @@ layers:
 
 caches:
   kelowna_overlay:
-    grids: [z18]
+    grids: [z20]
     sources: [kelowna_overlay]
   kelowna2012:
     grids: [z20]
@@ -55,7 +56,8 @@ sources:
     mapfile: '/srv/roads/kelowna/overlay.xml'
     supported_srs: ['EPSG:3857']
   kelowna2012:
-    type: mapnik
-    mapfile: '/srv/imagery/kelowna/2012/kelowna.xml'
+    type: mapserver
     supported_srs: ['EPSG:3857']
-
+    req:
+      layers: kelowna2012
+      map: './mapfile.map'
