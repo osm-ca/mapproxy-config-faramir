@@ -58,6 +58,7 @@ sources:
   kelowna2012:
     type: mapserver
     supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
     req:
       layers: kelowna2012
       map: './mapfile.map'
