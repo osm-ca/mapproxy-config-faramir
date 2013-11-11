@@ -1,0 +1,61 @@
+# Include grids
+
+base: [grids.yaml]
+
+services:
+  demo:
+  tms:
+    # origin for /tiles service
+    origin: 'nw'
+
+globals:
+  image:
+    resampling_method: bicubic
+    paletted: false
+    formats:
+      image/png:
+        mode: RGBA
+        transparent: true
+        resampling_method: bicubic
+      png8:
+        format: image/png
+        mode: P
+        transparent: true
+        resampling_method: nearest
+        encoding_options:
+          quantizer: fastoctree
+
+  cache:
+    meta_size: [4,4]
+    meta_buffer: 0
+    base_dir: '/var/tile/cache'
+    lock_dir: '/var/tile/cache/locks'
+    tile_lock_dir: '/var/tile/cache/tile_locks'
+
+layers:
+  - name: kelowna_overlay
+    title: City of Kelowna roads overlay
+    sources: [kelowna_overlay]
+  - name: kelowna2012
+    title: City of Kelowna 2012 orthos
+    sources: [kelowna2012]
+
+caches:
+  kelowna_overlay:
+    grids: [z18]
+    sources: [kelowna_overlay]
+  kelowna2012:
+    grids: [z20]
+    sources: [kelowna2012]
+
+sources:
+  kelowna_overlay:
+    type: mapnik
+    format: png8
+    mapfile: '/srv/roads/kelowna/overlay.xml'
+    supported_srs: ['EPSG:3857']
+  kelowna2012:
+    type: mapnik
+    mapfile: '/srv/imagery/kelowna/2012/kelowna.xml'
+    supported_srs: ['EPSG:3857']
+
