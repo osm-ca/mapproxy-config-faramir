@@ -1,37 +1,13 @@
-# Include grids
+# (C) 2013 Paul Norman, MIT license
 
-base: [grids.yaml]
+# Include grids, parts, other common config
+base: [grids.yaml,globals.yaml]
 
 services:
   demo:
   tms:
     # origin for /tiles service
     origin: 'nw'
-
-globals:
-  image:
-    resampling_method: bicubic
-    paletted: false
-    formats:
-      image/png:
-        mode: RGBA
-        transparent: true
-        resampling_method: bicubic
-      png8:
-        format: image/png
-        mode: P
-        transparent: true
-        resampling_method: nearest
-        encoding_options:
-          quantizer: fastoctree
-  mapserver:
-    binary: '../../bin/mapserv'
-  cache:
-    meta_size: [4,4]
-    meta_buffer: 0
-    base_dir: '/var/tile/cache'
-    lock_dir: '/var/tile/cache/locks'
-    tile_lock_dir: '/var/tile/cache/tile_locks'
 
 layers:
   - name: kelowna_overlay
@@ -49,6 +25,13 @@ caches:
     grids: [z20]
     sources: [kelowna2012]
 
+parts:
+  sources:
+    base: &imagery
+      type: mapserver
+      supported_srs: ['EPSG:3857']
+      concurrent_requests: 4
+
 sources:
   kelowna_overlay:
     type: mapnik
@@ -56,9 +39,7 @@ sources:
     mapfile: '/srv/roads/kelowna/overlay.xml'
     supported_srs: ['EPSG:3857']
   kelowna2012:
-    type: mapserver
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
+    <<: *imagery
     req:
       layers: kelowna2012
       map: './mapfile.map'
