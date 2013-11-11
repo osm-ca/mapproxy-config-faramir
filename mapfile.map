@@ -1,0 +1,36 @@
+MAP
+	NAME "mapproxy source imagery"
+	CONFIG "MS_ERRORFILE" "/var/log/mapserv/mapserv.log"
+	DEBUG 0
+	EXTENT -20037508.3428 -20037508.3428 20037508.3428 20037508.3428
+	IMAGECOLOR 0 0 0
+	IMAGETYPE png
+	MAXSIZE 4000
+	STATUS ON
+	PROJECTION
+		"init=epsg:3857"
+	END
+	WEB
+		METADATA
+			"ows_enable_request" "*"
+		END
+	END
+	LAYER
+		STATUS ON
+		TYPE RASTER
+		NAME "kelowna2012"
+		DATA "/srv/imagery/kelowna/2012/Kelowna_2012_10cm_20x.ecw"
+		PROCESSING "RESAMPLE=BILINEAR"
+		PROJECTION
+			"init=epsg:26911"
+		END
+	END
+	OUTPUTFORMAT
+		NAME "png"
+		DRIVER AGG/PNG
+		MIMETYPE "image/png"
+		IMAGEMODE RGBA
+		EXTENSION "png"
+		TRANSPARENT ON
+	END
+END
