@@ -1,20 +1,6 @@
 MAP
 	NAME "mapproxy source imagery"
-	CONFIG "MS_ERRORFILE" "/var/log/mapserv/mapserv.log"
-	DEBUG 0
-	EXTENT -20037508.3428 -20037508.3428 20037508.3428 20037508.3428
-	IMAGECOLOR 0 0 0
-	IMAGETYPE png
-	MAXSIZE 4000
-	STATUS ON
-	PROJECTION
-		"init=epsg:3857"
-	END
-	WEB
-		METADATA
-			"ows_enable_request" "*"
-		END
-	END
+	INCLUDE "globals.map"
 	LAYER
 		STATUS ON
 		TYPE RASTER
