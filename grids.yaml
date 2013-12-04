@@ -1,8 +1,14 @@
 # Define various grids to limit the max zoom cached
 # We don't want to cache to z20 on a landsat image
 grids:
+  flippedy:
+    base: GLOBAL_MERCATOR
+    srs: EPSG:3857
   z12:
     base: GLOBAL_WEBMERCATOR
+    num_levels: 13
+  z12y:
+    base: flippedy
     num_levels: 13
   z13:
     base: GLOBAL_WEBMERCATOR

@@ -16,6 +16,12 @@ layers:
   - name: kelowna2012
     title: City of Kelowna 2012 orthos
     sources: [kelowna2012]
+  - name: gist_pages
+    title: Visualized pages for clustering
+    sources: [gist_pages]
+  - name: orderby_pages
+    title: Visualized pages for clustering
+    sources: [orderby_pages]
 
 caches:
   kelowna_overlay:
@@ -24,6 +30,18 @@ caches:
   kelowna2012:
     grids: [z20]
     sources: [kelowna2012]
+  gist_pages:
+    sources: [seed_only]
+    grids: [z12y]
+    cache:
+      filename: /srv/prerendered/gist_pages.mbtiles
+      type: mbtiles
+  orderby_pages:
+    sources: [seed_only]
+    grids: [z12y]
+    cache:
+      filename: /srv/prerendered/orderby_pages.mbtiles
+      type: mbtiles
 
 parts:
   sources:
@@ -33,6 +51,9 @@ parts:
       concurrent_requests: 4
 
 sources:
+  seed_only:
+    type: debug
+    seed_only: true
   kelowna_overlay:
     type: mapnik
     format: png8
