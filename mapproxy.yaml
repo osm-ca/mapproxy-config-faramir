@@ -9,6 +9,17 @@ services:
     # origin for /tiles service
     origin: 'nw'
 
+parts:
+  sources:
+    base: &imagery
+      type: mapserver
+      supported_srs: ['EPSG:3857']
+      concurrent_requests: 4
+  caches:
+    file: &file
+      type: file
+      directory_layout: tms
+
 layers:
   - name: kelowna_overlay
     title: City of Kelowna roads overlay
@@ -16,6 +27,9 @@ layers:
   - name: kelowna2012
     title: City of Kelowna 2012 orthos
     sources: [kelowna2012]
+  - name: nanaimo2012
+    title: City of Nanaimo 2012 orthos
+    sources: [nanaimo2012]
   - name: surrey2010
     title: City of Surrey
     sources: [surrey2010]
@@ -26,23 +40,24 @@ layers:
 caches:
   kelowna_overlay:
     grids: [z20]
+    cache: *file
     sources: [kelowna_overlay]
   kelowna2012:
     grids: [z20]
+    cache: *file
     sources: [kelowna2012]
+  nanaimo2012:
+    grids: [z20]
+    cache: *file
+    sources: [nanaimo2012]
   surrey2010:
     grids: [z20]
+    cache: *file
     sources: [surrey2010]
   surrey2013:
     grids: [z20]
+    cache: *file
     sources: [surrey2013]
-
-parts:
-  sources:
-    base: &imagery
-      type: mapserver
-      supported_srs: ['EPSG:3857']
-      concurrent_requests: 4
 
 sources:
   seed_only:
@@ -64,6 +79,12 @@ sources:
       srs: 'EPSG:4326'
     req:
       layers: kelowna2012
+      map: './mapfile.map'
+
+  nanaimo2012:
+    <<: *imagery
+    req:
+      layers: nanaimo2012
       map: './mapfile.map'
 
   surrey2010:

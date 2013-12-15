@@ -14,6 +14,15 @@ MAP
 	LAYER
 		STATUS ON
 		TYPE RASTER
+		NAME "nanaimo2012"
+		TILEINDEX "/srv/imagery/nanaimo/2012/Nanaimo_2012_10cm_TIF.shp"
+		PROJECTION
+			"init=epsg:26910"
+		END
+	END
+	LAYER
+		STATUS ON
+		TYPE RASTER
 		NAME "surrey2010"
 		DATA "/srv/imagery/surrey/2010/Surrey_10cm_utm10_2010.sid"
 		PROCESSING "RESAMPLE=BILINEAR"
