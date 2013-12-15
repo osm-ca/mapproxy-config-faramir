@@ -54,8 +54,14 @@ sources:
     mapfile: '/srv/roads/kelowna/overlay.xml'
     supported_srs: ['EPSG:3857']
     concurrent_requests: 4
+    coverage:
+      datasource: './kelowna2012.wkt'
+      srs: 'EPSG:4326'
   kelowna2012:
     <<: *imagery
+    coverage:
+      datasource: './kelowna2012.wkt'
+      srs: 'EPSG:4326'
     req:
       layers: kelowna2012
       map: './mapfile.map'
