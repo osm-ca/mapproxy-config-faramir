@@ -16,6 +16,9 @@ layers:
   - name: kelowna2012
     title: City of Kelowna 2012 orthos
     sources: [kelowna2012]
+  - name: surrey2010
+    title: City of Surrey
+    sources: [surrey2010]
   - name: surrey2013
     title: City of Surrey
     sources: [surrey2013]
@@ -27,6 +30,9 @@ caches:
   kelowna2012:
     grids: [z20]
     sources: [kelowna2012]
+  surrey2010:
+    grids: [z20]
+    sources: [surrey2010]
   surrey2013:
     grids: [z20]
     sources: [surrey2013]
@@ -52,6 +58,15 @@ sources:
     <<: *imagery
     req:
       layers: kelowna2012
+      map: './mapfile.map'
+
+  surrey2010:
+    <<: *imagery
+    coverage:
+      datasource: './surrey2010.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: surrey2010
       map: './mapfile.map'
   surrey2013:
     <<: *imagery
