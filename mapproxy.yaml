@@ -86,6 +86,9 @@ sources:
     type: mapserver
     supported_srs: ['EPSG:26910']
     concurrent_requests: 4
+    coverage:
+      datasource: './nanaimo2012.wkt'
+      srs: 'EPSG:4326'
     req:
       layers: nanaimo2012
       map: './mapfile.map'
