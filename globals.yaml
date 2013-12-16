@@ -1,12 +1,12 @@
 globals:
   image:
-    resampling_method: bicubic
+    resampling_method: nearest
     paletted: false
     formats:
       image/png:
         mode: RGBA
         transparent: true
-        resampling_method: bicubic
+        resampling_method: nearest
       png8:
         format: image/png
         mode: P
