@@ -82,7 +82,10 @@ sources:
       map: './mapfile.map'
 
   nanaimo2012:
-    <<: *imagery
+#    <<: *imagery
+    type: mapserver
+    supported_srs: ['EPSG:26910']
+    concurrent_requests: 4
     req:
       layers: nanaimo2012
       map: './mapfile.map'
