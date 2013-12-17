@@ -70,12 +70,12 @@ sources:
     supported_srs: ['EPSG:3857']
     concurrent_requests: 4
     coverage:
-      datasource: './kelowna2012.wkt'
+      datasource: 'bounds/kelowna2012.wkt'
       srs: 'EPSG:4326'
   kelowna2012:
     <<: *imagery
     coverage:
-      datasource: './kelowna2012.wkt'
+      datasource: 'bounds/kelowna2012.wkt'
       srs: 'EPSG:4326'
     req:
       layers: kelowna2012
@@ -87,7 +87,7 @@ sources:
     supported_srs: ['EPSG:26910']
     concurrent_requests: 4
     coverage:
-      datasource: './nanaimo2012.wkt'
+      datasource: 'bounds/nanaimo2012.wkt'
       srs: 'EPSG:4326'
     req:
       layers: nanaimo2012
@@ -96,7 +96,7 @@ sources:
   surrey2010:
     <<: *imagery
     coverage:
-      datasource: './surrey2010.wkt'
+      datasource: 'bounds/surrey2010.wkt'
       srs: 'EPSG:4326'
     req:
       layers: surrey2010
@@ -104,7 +104,7 @@ sources:
   surrey2013:
     <<: *imagery
     coverage:
-      datasource: './surrey2013.wkt'
+      datasource: 'bounds/surrey2013.wkt'
       srs: 'EPSG:4326'
     req:
       layers: surrey2013
