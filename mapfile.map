@@ -28,6 +28,15 @@ MAP
 	LAYER
 		STATUS ON
 		TYPE RASTER
+		NAME "nanaimo2009_10cm"
+		TILEINDEX "/srv/imagery/nanaimo/2009/Nanaimo_2009_10cm_SID.shp"
+		PROJECTION
+			"init=epsg:26910"
+		END
+	END
+	LAYER
+		STATUS ON
+		TYPE RASTER
 		NAME "surrey2010"
 		DATA "/srv/imagery/surrey/2010/Surrey_10cm_utm10_2010.sid"
 		PROCESSING "RESAMPLE=BILINEAR"

@@ -30,6 +30,9 @@ layers:
   - name: nanaimo2012
     title: City of Nanaimo 2012 orthos
     sources: [nanaimo2012]
+  - name: nanaimo2009_10cm
+    title: City of Nanaimo 2009 orthos
+    sources: [nanaimo2009_10cm]
   - name: surrey2010
     title: City of Surrey
     sources: [surrey2010]
@@ -58,6 +61,10 @@ caches:
     grids: [z20]
     cache: *file
     sources: [surrey2013]
+  nanaimo2009_10cm:
+    grids: [z20]
+    cache: *file
+    sources: [nanaimo2009_10cm]
 
 sources:
   seed_only:
@@ -82,7 +89,6 @@ sources:
       map: './mapfile.map'
 
   nanaimo2012:
-#    <<: *imagery
     type: mapserver
     supported_srs: ['EPSG:26910']
     concurrent_requests: 4
@@ -91,6 +97,16 @@ sources:
       srs: 'EPSG:4326'
     req:
       layers: nanaimo2012
+      map: './mapfile.map'
+  nanaimo2009_10cm:
+    type: mapserver
+    supported_srs: ['EPSG:26910']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/nanaimo2009_10cm.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: nanaimo2009_10cm
       map: './mapfile.map'
 
   surrey2010:
