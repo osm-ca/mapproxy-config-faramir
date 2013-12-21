@@ -18,7 +18,7 @@ globals:
     binary: '../../bin/mapserv'
   cache:
     meta_size: [4,4]
-    meta_buffer: 0
+    meta_buffer: 2
     base_dir: '/var/tile/cache'
     lock_dir: '/var/tile/cache/locks'
     tile_lock_dir: '/var/tile/cache/tile_locks'
