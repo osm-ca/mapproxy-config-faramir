@@ -2,7 +2,7 @@
         DEBUG 0
         EXTENT -20037508.3428 -20037508.3428 20037508.3428 20037508.3428
         IMAGECOLOR 0 0 0
-        IMAGETYPE png
+        IMAGETYPE tiff
         MAXSIZE 4000
         STATUS ON
         PROJECTION
@@ -12,5 +12,13 @@
                 METADATA
                         "ows_enable_request" "*"
                 END
+        END
+        OUTPUTFORMAT
+                NAME "tiff"
+                DRIVER GDAL/GTiff
+                MIMETYPE "image/tiff"
+                IMAGEMODE RGBA
+                EXTENSION "tif"
+                TRANSPARENT ON
         END
 

@@ -15,6 +15,7 @@ parts:
       type: mapserver
       supported_srs: ['EPSG:3857']
       concurrent_requests: 4
+      supported_formats: ['image/tiff']
   caches:
     file: &file
       type: file
@@ -92,6 +93,7 @@ sources:
     type: mapserver
     supported_srs: ['EPSG:26910']
     concurrent_requests: 4
+    supported_formats: ['image/tiff']
     coverage:
       datasource: 'bounds/nanaimo2012.wkt'
       srs: 'EPSG:4326'
@@ -102,6 +104,7 @@ sources:
     type: mapserver
     supported_srs: ['EPSG:26910']
     concurrent_requests: 4
+    supported_formats: ['image/tiff']
     coverage:
       datasource: 'bounds/nanaimo2009_10cm.wkt'
       srs: 'EPSG:4326'
