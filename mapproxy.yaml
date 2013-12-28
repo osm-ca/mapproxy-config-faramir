@@ -43,6 +43,9 @@ layers:
   - name: surrey2013
     title: City of Surrey
     sources: [surrey2013]
+  - name: landsat_047026
+    title: Latest 047026 landsat
+    sources: [LC80470262013255LGN00]
 
 caches:
   kelowna_overlay:
@@ -73,6 +76,10 @@ caches:
     grids: [z20]
     cache: *file
     sources: [surrey2013]
+  LC80470262013255LGN00:
+    grids: [z13]
+    cache: *file
+    sources: [LC80470262013255LGN00]
 
 sources:
   seed_only:
@@ -146,3 +153,12 @@ sources:
     req:
       layers: surrey2013
       map: './mapfile.map'
+  LC80470262013255LGN00:
+    <<: *imagery
+    coverage:
+      datasource: 'bounds/landsat_047026.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: LC80470262013255LGN00
+      map: './mapfile.map'
+
