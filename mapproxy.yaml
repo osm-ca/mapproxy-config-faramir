@@ -46,6 +46,9 @@ layers:
   - name: landsat_047026
     title: Latest 047026 landsat
     sources: [LC80470262013255LGN00]
+  - name: landsat_233055
+    title: Latest 233055 landsat
+    sources: [LC82330552013246LGN00]
 
 caches:
   kelowna_overlay:
@@ -80,6 +83,10 @@ caches:
     grids: [z13]
     cache: *file
     sources: [LC80470262013255LGN00]
+  LC82330552013246LGN00:
+    grids: [z14]
+    cache: *file
+    sources: [LC82330552013246LGN00]
 
 sources:
   seed_only:
@@ -160,5 +167,13 @@ sources:
       srs: 'EPSG:4326'
     req:
       layers: LC80470262013255LGN00
+      map: './mapfile.map'
+  LC82330552013246LGN00:
+    <<: *imagery
+    coverage:
+      datasource: 'bounds/landsat_233055.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: LC82330552013246LGN00
       map: './mapfile.map'
 
