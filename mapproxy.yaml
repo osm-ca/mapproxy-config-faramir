@@ -43,9 +43,17 @@ layers:
   - name: surrey2013
     title: City of Surrey
     sources: [surrey2013]
+
+  - name: landsat_047024
+    title: Latest 047024 landsat
+    sources: [LC80470242013255LGN00]
+  - name: landsat_047025
+    title: Latest 047025 landsat
+    sources: [LC80470252013255LGN00]
   - name: landsat_047026
     title: Latest 047026 landsat
     sources: [LC80470262013255LGN00]
+
   - name: landsat_233055
     title: Latest 233055 landsat
     sources: [LC82330552013246LGN00]
@@ -79,10 +87,20 @@ caches:
     grids: [z20]
     cache: *file
     sources: [surrey2013]
+
+  LC80470242013255LGN00:
+    grids: [z13]
+    cache: *file
+    sources: [LC80470242013255LGN00]
+  LC80470252013255LGN00:
+    grids: [z13]
+    cache: *file
+    sources: [LC80470252013255LGN00]
   LC80470262013255LGN00:
     grids: [z13]
     cache: *file
     sources: [LC80470262013255LGN00]
+
   LC82330552013246LGN00:
     grids: [z14]
     cache: *file
@@ -160,6 +178,23 @@ sources:
     req:
       layers: surrey2013
       map: './mapfile.map'
+
+  LC80470242013255LGN00:
+    <<: *imagery
+    coverage:
+      datasource: 'bounds/landsat_047024.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: LC80470242013255LGN00
+      map: './mapfile.map'
+  LC80470252013255LGN00:
+    <<: *imagery
+    coverage:
+      datasource: 'bounds/landsat_047025.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: LC80470252013255LGN00
+      map: './mapfile.map'
   LC80470262013255LGN00:
     <<: *imagery
     coverage:
@@ -168,6 +203,7 @@ sources:
     req:
       layers: LC80470262013255LGN00
       map: './mapfile.map'
+
   LC82330552013246LGN00:
     <<: *imagery
     coverage:
