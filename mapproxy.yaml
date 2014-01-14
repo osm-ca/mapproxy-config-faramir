@@ -58,6 +58,13 @@ layers:
     title: Latest 233055 landsat
     sources: [LC82330552013246LGN00]
 
+  - name: font_nouni
+    title: openstreetmap-carto without unifont
+    sources: [font_nouni]
+  - name: font_droid
+    title: openstreetmap-carto with droid
+    sources: [font_droid]
+
 caches:
   kelowna_overlay:
     grids: [z20]
@@ -105,6 +112,15 @@ caches:
     grids: [z14]
     cache: *file
     sources: [LC82330552013246LGN00]
+
+  font_nouni:
+    grids: [z19]
+    cache: *file
+    sources: [font_nouni]
+  font_droid:
+    grids: [z19]
+    cache: *file
+    sources: [font_droid]
 
 sources:
   seed_only:
@@ -213,3 +229,22 @@ sources:
       layers: LC82330552013246LGN00
       map: './mapfile.map'
 
+  font_nouni:
+    type: mapnik
+    format: png8
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nouni.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
+
+  font_droid:
+    type: mapnik
+    format: png24
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-droidfallback.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
