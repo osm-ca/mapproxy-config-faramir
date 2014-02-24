@@ -64,7 +64,9 @@ layers:
   - name: font_droid
     title: openstreetmap-carto with droid
     sources: [font_droid]
-
+  - name: font_arundina
+    title: openstreetmap-carto with arundina
+    sources: [font_arundina]
 caches:
   kelowna_overlay:
     grids: [z20]
@@ -117,10 +119,17 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_nouni]
+    meta_buffer: 128
   font_droid:
     grids: [z19]
     cache: *file
     sources: [font_droid]
+    meta_buffer: 128
+  font_arundina:
+    grids: [z19]
+    cache: *file
+    sources: [font_arundina]
+    meta_buffer: 128
 
 sources:
   seed_only:
@@ -248,3 +257,14 @@ sources:
     coverage:
       datasource: 'bounds/geofabrik-asia.wkt'
       srs: 'EPSG:4326'
+
+  font_arundina:
+    type: mapnik
+    format: png24
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-arundina.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
+
