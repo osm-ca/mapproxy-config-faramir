@@ -67,6 +67,10 @@ layers:
   - name: font_arundina
     title: openstreetmap-carto with arundina
     sources: [font_arundina]
+  - name: font_padauk
+    title: openstreetmap-carto with padauk
+    sources: [font_padauk]
+
 caches:
   kelowna_overlay:
     grids: [z20]
@@ -129,6 +133,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_arundina]
+    meta_buffer: 128
+  font_padauk:
+    grids: [z19]
+    cache: *file
+    sources: [font_padauk]
     meta_buffer: 128
 
 sources:
@@ -262,6 +271,16 @@ sources:
     type: mapnik
     format: png24
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-arundina.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
+
+  font_padauk:
+    type: mapnik
+    format: png24
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-padauk.xml'
     supported_srs: ['EPSG:3857']
     concurrent_requests: 4
     coverage:
