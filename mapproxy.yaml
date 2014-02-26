@@ -70,6 +70,12 @@ layers:
   - name: font_padauk
     title: openstreetmap-carto with padauk
     sources: [font_padauk]
+  - name: font_khmer
+    title: openstreetmap-carto with khmer
+    sources: [font_khmer]
+  - name: font_seasia
+    title: openstreetmap-carto with khmer
+    sources: [font_seasia]
 
 caches:
   kelowna_overlay:
@@ -138,6 +144,16 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_padauk]
+    meta_buffer: 128
+  font_khmer:
+    grids: [z19]
+    cache: *file
+    sources: [font_khmer]
+    meta_buffer: 128
+  font_seasia:
+    grids: [z19]
+    cache: *file
+    sources: [font_seasia]
     meta_buffer: 128
 
 sources:
@@ -281,6 +297,26 @@ sources:
     type: mapnik
     format: png24
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-padauk.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
+
+  font_khmer:
+    type: mapnik
+    format: png24
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-khmer.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
+
+  font_seasia:
+    type: mapnik
+    format: png24
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-seasia.xml'
     supported_srs: ['EPSG:3857']
     concurrent_requests: 4
     coverage:
