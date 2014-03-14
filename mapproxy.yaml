@@ -58,24 +58,9 @@ layers:
     title: Latest 233055 landsat
     sources: [LC82330552013246LGN00]
 
-  - name: font_nouni
-    title: openstreetmap-carto without unifont
-    sources: [font_nouni]
-  - name: font_droid
-    title: openstreetmap-carto with droid
-    sources: [font_droid]
-  - name: font_arundina
-    title: openstreetmap-carto with arundina
-    sources: [font_arundina]
-  - name: font_padauk
-    title: openstreetmap-carto with padauk
-    sources: [font_padauk]
-  - name: font_khmer
-    title: openstreetmap-carto with khmer
-    sources: [font_khmer]
-  - name: font_seasia
-    title: openstreetmap-carto with khmer
-    sources: [font_seasia]
+  - name: font_nofallback
+    title: openstreetmap-carto without last resort fallbacks
+    sources: [font_nofallback]
 
 caches:
   kelowna_overlay:
@@ -125,35 +110,10 @@ caches:
     cache: *file
     sources: [LC82330552013246LGN00]
 
-  font_nouni:
+  font_nofallback:
     grids: [z19]
     cache: *file
-    sources: [font_nouni]
-    meta_buffer: 128
-  font_droid:
-    grids: [z19]
-    cache: *file
-    sources: [font_droid]
-    meta_buffer: 128
-  font_arundina:
-    grids: [z19]
-    cache: *file
-    sources: [font_arundina]
-    meta_buffer: 128
-  font_padauk:
-    grids: [z19]
-    cache: *file
-    sources: [font_padauk]
-    meta_buffer: 128
-  font_khmer:
-    grids: [z19]
-    cache: *file
-    sources: [font_khmer]
-    meta_buffer: 128
-  font_seasia:
-    grids: [z19]
-    cache: *file
-    sources: [font_seasia]
+    sources: [font_nofallback]
     meta_buffer: 128
 
 sources:
@@ -263,60 +223,10 @@ sources:
       layers: LC82330552013246LGN00
       map: './mapfile.map'
 
-  font_nouni:
+  font_nofallback:
     type: mapnik
     format: png8
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nouni.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
-
-  font_droid:
-    type: mapnik
-    format: png24
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-droidfallback.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
-
-  font_arundina:
-    type: mapnik
-    format: png24
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-arundina.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
-
-  font_padauk:
-    type: mapnik
-    format: png24
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-padauk.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
-
-  font_khmer:
-    type: mapnik
-    format: png24
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-khmer.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
-
-  font_seasia:
-    type: mapnik
-    format: png24
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-seasia.xml'
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
     supported_srs: ['EPSG:3857']
     concurrent_requests: 4
     coverage:
