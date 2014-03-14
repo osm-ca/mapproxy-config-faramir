@@ -61,6 +61,9 @@ layers:
   - name: font_nofallback
     title: openstreetmap-carto without last resort fallbacks
     sources: [font_nofallback]
+  - name: font_mukti
+    title: openstreetmap-carto with mukti
+    sources: [font_mukti]
 
 caches:
   kelowna_overlay:
@@ -114,6 +117,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_nofallback]
+    meta_buffer: 128
+  font_mukti:
+    grids: [z19]
+    cache: *file
+    sources: [font_mukti]
     meta_buffer: 128
 
 sources:
@@ -227,6 +235,16 @@ sources:
     type: mapnik
     format: png8
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
+    supported_srs: ['EPSG:3857']
+    concurrent_requests: 4
+    coverage:
+      datasource: 'bounds/geofabrik-asia.wkt'
+      srs: 'EPSG:4326'
+
+  font_mukti:
+    type: mapnik
+    format: png8
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-mukti.xml'
     supported_srs: ['EPSG:3857']
     concurrent_requests: 4
     coverage:
