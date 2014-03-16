@@ -16,6 +16,15 @@ parts:
       supported_srs: ['EPSG:3857']
       concurrent_requests: 4
       supported_formats: ['image/tiff']
+    osm-asia: &osm-asia
+      type: mapnik
+      format: png8
+      supported_srs: ['EPSG:3857']
+      concurrent_requests: 4
+      coverage:
+        datasource: 'bounds/geofabrik-asia.wkt'
+        srs: 'EPSG:4326'
+
   caches:
     file: &file
       type: file
@@ -64,6 +73,9 @@ layers:
   - name: font_mukti
     title: openstreetmap-carto with mukti
     sources: [font_mukti]
+  - name: font_gargi
+    title: openstreetmap-carto with gargi
+    sources: [font_gargi]
 
 caches:
   kelowna_overlay:
@@ -122,6 +134,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_mukti]
+    meta_buffer: 128
+  font_gargi:
+    grids: [z19]
+    cache: *file
+    sources: [font_gargi]
     meta_buffer: 128
 
 sources:
@@ -232,22 +249,13 @@ sources:
       map: './mapfile.map'
 
   font_nofallback:
-    type: mapnik
-    format: png8
+    <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
 
   font_mukti:
-    type: mapnik
-    format: png8
+    <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-mukti.xml'
-    supported_srs: ['EPSG:3857']
-    concurrent_requests: 4
-    coverage:
-      datasource: 'bounds/geofabrik-asia.wkt'
-      srs: 'EPSG:4326'
 
+  font_gargi:
+    <<: *osm-asia
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-gargi.xml'
