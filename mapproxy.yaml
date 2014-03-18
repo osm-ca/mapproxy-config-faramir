@@ -52,6 +52,9 @@ layers:
   - name: surrey2013
     title: City of Surrey
     sources: [surrey2013]
+  - name: vancouver2011
+    title: CoV 2011 imagery
+    sources: [vancouver2011]
 
   - name: landsat_047024
     title: Latest 047024 landsat
@@ -76,6 +79,9 @@ layers:
   - name: font_gargi
     title: openstreetmap-carto with gargi
     sources: [font_gargi]
+  - name: font_chandas
+    title: openstreetmap-carto with chandas
+    sources: [font_chandas]
 
 caches:
   kelowna_overlay:
@@ -106,6 +112,10 @@ caches:
     grids: [z20]
     cache: *file
     sources: [surrey2013]
+  vancouver2011:
+    grids: [z20]
+    cache: *file
+    sources: [vancouver2011]
 
   LC80470242013255LGN00:
     grids: [z13]
@@ -139,6 +149,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_gargi]
+    meta_buffer: 128
+  font_chandas:
+    grids: [z19]
+    cache: *file
+    sources: [font_chandas]
     meta_buffer: 128
 
 sources:
@@ -213,6 +228,14 @@ sources:
     req:
       layers: surrey2013
       map: './mapfile.map'
+  vancouver2011:
+    <<: *imagery
+    coverage:
+      datasource: 'bounds/vancouver2011.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: vancouver2011
+      map: './mapfile.map'
 
   LC80470242013255LGN00:
     <<: *imagery
@@ -251,11 +274,13 @@ sources:
   font_nofallback:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
-
   font_mukti:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-mukti.xml'
-
   font_gargi:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-gargi.xml'
+  font_chandas:
+    <<: *osm-asia
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-chandas.xml'
+

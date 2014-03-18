@@ -74,4 +74,14 @@ MAP
       "init=epsg:26910"
     END
   END
+  LAYER
+    STATUS ON
+    TYPE RASTER
+    NAME "vancouver2011"
+    DATA "/srv/imagery/vancouver/2011/city_vancouver_utm10_2011.ecw"
+    PROCESSING "RESAMPLE=BILINEAR"
+    PROJECTION
+      "init=epsg:26910"
+    END
+  END
 END
