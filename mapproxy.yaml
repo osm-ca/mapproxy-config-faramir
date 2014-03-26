@@ -69,6 +69,9 @@ layers:
   - name: landsat_233055
     title: Latest 233055 landsat
     sources: [LC82330552013246LGN00]
+  - name: landsat_200054
+    title: Latest 047026 landsat
+    sources: [LC82000542014082LGN00]
 
   - name: font_nofallback
     title: openstreetmap-carto without last resort fallbacks
@@ -129,7 +132,10 @@ caches:
     grids: [z13]
     cache: *file
     sources: [LC80470262013255LGN00]
-
+  LC82000542014082LGN00:
+    grids: [z14]
+    cache: *file
+    sources: [LC82000542014082LGN00]
   LC82330552013246LGN00:
     grids: [z14]
     cache: *file
@@ -260,6 +266,15 @@ sources:
       srs: 'EPSG:4326'
     req:
       layers: LC80470262013255LGN00
+      map: './mapfile.map'
+
+  LC82000542014082LGN00:
+    <<: *imagery
+    coverage:
+      datasource: 'bounds/landsat_200054.wkt'
+      srs: 'EPSG:4326'
+    req:
+      layers: LC82000542014082LGN00
       map: './mapfile.map'
 
   LC82330552013246LGN00:
