@@ -76,15 +76,18 @@ layers:
   - name: font_nofallback
     title: openstreetmap-carto without last resort fallbacks
     sources: [font_nofallback]
-  - name: font_mukti
-    title: openstreetmap-carto with mukti
-    sources: [font_mukti]
+  - name: font_paranar
+    title: openstreetmap-carto with paranar
+    sources: [font_paranar]
   - name: font_gargi
     title: openstreetmap-carto with gargi
     sources: [font_gargi]
   - name: font_chandas
     title: openstreetmap-carto with chandas
     sources: [font_chandas]
+  - name: font_tibetan
+    title: openstreetmap-carto with Tibetan Machine Uni
+    sources: [font_tibetan]
 
 caches:
   kelowna_overlay:
@@ -146,10 +149,10 @@ caches:
     cache: *file
     sources: [font_nofallback]
     meta_buffer: 128
-  font_mukti:
+  font_paranar:
     grids: [z19]
     cache: *file
-    sources: [font_mukti]
+    sources: [font_paranar]
     meta_buffer: 128
   font_gargi:
     grids: [z19]
@@ -160,6 +163,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_chandas]
+    meta_buffer: 128
+  font_tibetan:
+    grids: [z19]
+    cache: *file
+    sources: [font_tibetan]
     meta_buffer: 128
 
 sources:
@@ -289,13 +297,16 @@ sources:
   font_nofallback:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
-  font_mukti:
+  font_paranar:
     <<: *osm-asia
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-mukti.xml'
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-paranar.xml'
   font_gargi:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-gargi.xml'
   font_chandas:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-chandas.xml'
+  font_tibetan:
+    <<: *osm-asia
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-tibetan.xml'
 
