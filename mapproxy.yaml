@@ -76,6 +76,9 @@ layers:
   - name: font_nofallback
     title: openstreetmap-carto without fallbacks
     sources: [font_nofallback]
+  - name: font_zenhei_sharp
+    title: openstreetmap-carto with Zen Hei Sharp
+    sources: [font_zenhei_sharp]
 
 caches:
   kelowna_overlay:
@@ -136,6 +139,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_nofallback]
+    meta_buffer: 128
+  font_zenhei_sharp:
+    grids: [z19]
+    cache: *file
+    sources: [font_zenhei_sharp]
     meta_buffer: 128
 
 sources:
@@ -265,3 +273,6 @@ sources:
   font_nofallback:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
+  font_zenhei_sharp:
+    <<: *osm-asia
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-zenhei-sharp.xml'
