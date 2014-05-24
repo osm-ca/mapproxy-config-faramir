@@ -79,6 +79,9 @@ layers:
   - name: font_zenhei_sharp
     title: openstreetmap-carto with Zen Hei Sharp
     sources: [font_zenhei_sharp]
+  - name: font_zenhei
+    title: openstreetmap-carto with Zen Hei Sharp
+    sources: [font_zenhei]
 
 caches:
   kelowna_overlay:
@@ -144,6 +147,11 @@ caches:
     grids: [z19]
     cache: *file
     sources: [font_zenhei_sharp]
+    meta_buffer: 128
+  font_zenhei:
+    grids: [z19]
+    cache: *file
+    sources: [font_zenhei]
     meta_buffer: 128
 
 sources:
@@ -276,3 +284,7 @@ sources:
   font_zenhei_sharp:
     <<: *osm-asia
     mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-zenhei-sharp.xml'
+  font_zenhei:
+    <<: *osm-asia
+    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-zenhei.xml'
+
