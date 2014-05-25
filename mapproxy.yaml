@@ -73,16 +73,6 @@ layers:
     title: Latest 047026 landsat
     sources: [LC82000542014082LGN00]
 
-  - name: font_nofallback
-    title: openstreetmap-carto without fallbacks
-    sources: [font_nofallback]
-  - name: font_zenhei_sharp
-    title: openstreetmap-carto with Zen Hei Sharp
-    sources: [font_zenhei_sharp]
-  - name: font_zenhei
-    title: openstreetmap-carto with Zen Hei Sharp
-    sources: [font_zenhei]
-
 caches:
   kelowna_overlay:
     grids: [z20]
@@ -137,22 +127,6 @@ caches:
     grids: [z14]
     cache: *file
     sources: [LC82330552013246LGN00]
-
-  font_nofallback:
-    grids: [z19]
-    cache: *file
-    sources: [font_nofallback]
-    meta_buffer: 128
-  font_zenhei_sharp:
-    grids: [z19]
-    cache: *file
-    sources: [font_zenhei_sharp]
-    meta_buffer: 128
-  font_zenhei:
-    grids: [z19]
-    cache: *file
-    sources: [font_zenhei]
-    meta_buffer: 128
 
 sources:
   seed_only:
@@ -277,14 +251,4 @@ sources:
     req:
       layers: LC82330552013246LGN00
       map: './mapfile.map'
-
-  font_nofallback:
-    <<: *osm-asia
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-nofallback.xml'
-  font_zenhei_sharp:
-    <<: *osm-asia
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-zenhei-sharp.xml'
-  font_zenhei:
-    <<: *osm-asia
-    mapfile: '/srv/mapnik/openstreetmap-carto/openstreetmap-carto-zenhei.xml'
 
