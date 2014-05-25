@@ -24,6 +24,14 @@ parts:
       coverage:
         datasource: 'bounds/geofabrik-asia.wkt'
         srs: 'EPSG:4326'
+    osm-northeast: &osm-northeast
+      type: mapnik
+      format: png8
+      supported_srs: ['EPSG:3857']
+      concurrent_requests: 4
+      coverage:
+        datasource: 'bounds/geofabrik-northeast.wkt'
+        srs: 'EPSG:4326'
 
   caches:
     file: &file
@@ -72,6 +80,10 @@ layers:
   - name: landsat_200054
     title: Latest 047026 landsat
     sources: [LC82000542014082LGN00]
+
+  - name: buildings_demo
+    title: openstreetmap-carto buildings styling demo
+    sources: [buildings_demo]
 
 caches:
   kelowna_overlay:
@@ -127,6 +139,10 @@ caches:
     grids: [z14]
     cache: *file
     sources: [LC82330552013246LGN00]
+  buildings_demo:
+    grids: [z19]
+    cache: *file
+    sources: [buildings_demo]
 
 sources:
   seed_only:
@@ -252,3 +268,6 @@ sources:
       layers: LC82330552013246LGN00
       map: './mapfile.map'
 
+  buildings_demo:
+    <<: *osm-northeast
+    mapfile: '/srv/mapnik/openstreetmap-carto/buildings.xml'
