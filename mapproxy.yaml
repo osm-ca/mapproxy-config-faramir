@@ -24,14 +24,11 @@ parts:
       coverage:
         datasource: 'bounds/geofabrik-asia.wkt'
         srs: 'EPSG:4326'
-    osm-northeast: &osm-northeast
+    mapnik-generic: &mapnik-generic
       type: mapnik
       format: png8
       supported_srs: ['EPSG:3857']
       concurrent_requests: 4
-      coverage:
-        datasource: 'bounds/geofabrik-northeast.wkt'
-        srs: 'EPSG:4326'
 
   caches:
     file: &file
@@ -269,5 +266,5 @@ sources:
       map: './mapfile.map'
 
   buildings_demo:
-    <<: *osm-northeast
+    <<: *mapnik-generic
     mapfile: '/srv/mapnik/openstreetmap-carto/buildings.xml'
