@@ -81,6 +81,9 @@ layers:
   - name: buildings_demo
     title: openstreetmap-carto buildings styling demo
     sources: [buildings_demo]
+  - name: landcover_recolour
+    title: openstreetmap-carto landcover_recolour demo
+    sources: [landcover_recolour]
 
 caches:
   kelowna_overlay:
@@ -140,6 +143,10 @@ caches:
     grids: [z19]
     cache: *file
     sources: [buildings_demo]
+  landcover_recolour:
+    grids: [z19]
+    cache: *file
+    sources: [landcover_recolour]
 
 sources:
   seed_only:
@@ -268,3 +275,7 @@ sources:
   buildings_demo:
     <<: *mapnik-generic
     mapfile: '/srv/mapnik/openstreetmap-carto/buildings.xml'
+
+  landcover_recolour:
+    <<: *mapnik-generic
+    mapfile: '/srv/mapnik/openstreetmap-carto/landcover_recolour.xml'
