@@ -84,6 +84,9 @@ layers:
   - name: landcover_recolour
     title: openstreetmap-carto landcover_recolour demo
     sources: [landcover_recolour]
+  - name: crossroad-names
+    title: openstreetmap-carto crossroad-names demo
+    sources: [crossroad-names]
 
 caches:
   kelowna_overlay:
@@ -139,6 +142,7 @@ caches:
     grids: [z14]
     cache: *file
     sources: [LC82330552013246LGN00]
+
   buildings_demo:
     grids: [z19]
     cache: *file
@@ -147,6 +151,10 @@ caches:
     grids: [z19]
     cache: *file
     sources: [landcover_recolour]
+  crossroad-names:
+    grids: [z19]
+    cache: *file
+    sources: [crossroad-names]
 
 sources:
   seed_only:
@@ -279,3 +287,6 @@ sources:
   landcover_recolour:
     <<: *mapnik-generic
     mapfile: '/srv/mapnik/openstreetmap-carto/landcover_recolour.xml'
+  crossroad-names:
+    <<: *mapnik-generic
+    mapfile: '/srv/mapnik/openstreetmap-carto/crossroad-names.xml'
