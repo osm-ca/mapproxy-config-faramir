@@ -87,6 +87,9 @@ layers:
   - name: crossroad-names
     title: openstreetmap-carto crossroad-names demo
     sources: [crossroad-names]
+  - name: abbreviated_names
+    title: Abbreviated names
+    sources: [abbreviated_names]
 
 caches:
   kelowna_overlay:
@@ -155,6 +158,13 @@ caches:
     grids: [z19]
     cache: *file
     sources: [crossroad-names]
+  abbreviated_names:
+    sources: [seed_only]
+    grids: [z12y]
+    cache:
+      filename: /srv/prerendered/abbreviated_names.mbtiles
+      type: mbtiles
+
 
 sources:
   seed_only:
