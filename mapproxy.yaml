@@ -81,12 +81,9 @@ layers:
   - name: buildings_demo
     title: openstreetmap-carto buildings styling demo
     sources: [buildings_demo]
-  - name: landcover_recolour
-    title: openstreetmap-carto landcover_recolour demo
-    sources: [landcover_recolour]
-  - name: crossroad-names
-    title: openstreetmap-carto crossroad-names demo
-    sources: [crossroad-names]
+  - name: landcover-labels
+    title: openstreetmap-carto landcover-labels demo
+    sources: [landcover-labels]
   - name: abbreviated_names
     title: Abbreviated names
     sources: [abbreviated_names]
@@ -150,14 +147,10 @@ caches:
     grids: [z19]
     cache: *file
     sources: [buildings_demo]
-  landcover_recolour:
+  landcover-labels:
     grids: [z19]
     cache: *file
-    sources: [landcover_recolour]
-  crossroad-names:
-    grids: [z19]
-    cache: *file
-    sources: [crossroad-names]
+    sources: [landcover-labels]
   abbreviated_names:
     sources: [seed_only]
     grids: [z12y]
@@ -293,10 +286,6 @@ sources:
   buildings_demo:
     <<: *mapnik-generic
     mapfile: '/srv/mapnik/openstreetmap-carto/buildings.xml'
-
-  landcover_recolour:
+  landcover-labels:
     <<: *mapnik-generic
-    mapfile: '/srv/mapnik/openstreetmap-carto/landcover_recolour.xml'
-  crossroad-names:
-    <<: *mapnik-generic
-    mapfile: '/srv/mapnik/openstreetmap-carto/crossroad-names.xml'
+    mapfile: '/srv/mapnik/openstreetmap-carto/landcover-labels.xml'
