@@ -29,6 +29,28 @@ MAP
   LAYER
     STATUS ON
     TYPE RASTER
+    NAME "langley2014"
+    TILEINDEX "/srv/imagery/langley/2014/Langley_2014_10cm_TIF.shp"
+    PROJECTION
+      "init=epsg:26910"
+    END
+    PROCESSING "RESAMPLE=NEAREST"
+    PROCESSING "OVERSAMPLE_RATIO=1.5"
+  END
+  LAYER
+    STATUS ON
+    TYPE RASTER
+    NAME "northvancouver2013"
+    TILEINDEX "/srv/imagery/north_vancouver/2013/DNV_2013_10cm_ECW.shp"
+    PROJECTION
+      "init=epsg:26910"
+    END
+    PROCESSING "RESAMPLE=NEAREST"
+    PROCESSING "OVERSAMPLE_RATIO=1.5"
+  END
+  LAYER
+    STATUS ON
+    TYPE RASTER
     NAME "nanaimo2009_10cm"
     TILEINDEX "/srv/imagery/nanaimo/2009/Nanaimo_2009_10cm_SID.shp"
     PROJECTION
