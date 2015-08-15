@@ -85,18 +85,9 @@ layers:
     title: Latest 047026 landsat
     sources: [LC82000542014082LGN00]
 
-  - name: buildings_demo
-    title: openstreetmap-carto buildings styling demo
-    sources: [buildings_demo]
-  - name: landcover-labels
-    title: openstreetmap-carto landcover-labels demo
-    sources: [landcover-labels]
-  - name: route_relation
-    title: openstreetmap-carto route_relation demo
-    sources: [route_relation]
-  - name: abbreviated_names
-    title: Abbreviated names
-    sources: [abbreviated_names]
+  - name: gsoc
+    title: openstreetmap-carto gsoc demo
+    sources: [gsoc]
 
 caches:
   kelowna_overlay:
@@ -161,10 +152,10 @@ caches:
     cache: *file
     sources: [LC82330552013246LGN00]
 
-  buildings_demo:
+  gsoc:
     grids: [z19]
     cache: *file
-    sources: [buildings_demo]
+    sources: [gsoc]
   landcover-labels:
     grids: [z19]
     cache: *file
@@ -323,12 +314,6 @@ sources:
       layers: LC82330552013246LGN00
       map: './mapfile.map'
 
-  buildings_demo:
+  gsoc:
     <<: *mapnik-generic
-    mapfile: '/srv/mapnik/openstreetmap-carto/buildings.xml'
-  landcover-labels:
-    <<: *mapnik-generic
-    mapfile: '/srv/mapnik/openstreetmap-carto/landcover-labels.xml'
-  route_relation:
-    <<: *mapnik-generic
-    mapfile: '/srv/mapnik/openstreetmap-carto/route_relation.xml'
+    mapfile: '/srv/mapnik/openstreetmap-carto/gsoc.xml'
