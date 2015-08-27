@@ -1,0 +1,13 @@
+# Run with a command like sudo -u www-data /srv/mapproxy/bin/mapproxy-seed -f mapproxy.yaml -s seed.yaml -c 4 --seed=gsoc
+seeds:
+  gsoc-all:
+    caches: [gsoc]
+    levels: [0,1,2,3,4,5,6,7]
+  gsoc-targets:
+    caches: [gsoc]
+    levels: [8,9,10,11,12,13]
+    coverages: [geofabrik-northeast]
+coverages:
+  geofabrik-northeast:
+    datasource: 'bounds/geofabrik-northeast.wkt'
+    srs: 'EPSG:4326'
