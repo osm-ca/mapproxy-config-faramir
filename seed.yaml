@@ -6,8 +6,17 @@ seeds:
   gsoc-targets:
     caches: [gsoc]
     levels: [8,9,10,11,12,13]
-    coverages: [geofabrik-northeast]
+    coverages: [geofabrik-northeast,geofabrik-pacific,geofabrik-greater-london,geofabrik-oxfordshire]
 coverages:
   geofabrik-northeast:
     datasource: 'bounds/geofabrik-northeast.wkt'
+    srs: 'EPSG:4326'
+  geofabrik-pacific:
+    datasource: 'bounds/geofabrik-pacific.wkt'
+    srs: 'EPSG:4326'
+  geofabrik-greater-london:
+    datasource: 'bounds/geofabrik-greater-london.wkt'
+    srs: 'EPSG:4326'
+  geofabrik-oxfordshire:
+    datasource: 'bounds/geofabrik-oxfordshire.wkt'
     srs: 'EPSG:4326'
